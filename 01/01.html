@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vuejs - 01</title>
+</head>
+<body>
+
+  <div id="app">
+    <h1>{{ title }}</h1>
+
+    <section>
+      <h2>Hobbies</h2>
+      <!-- Render the hobbies array -->
+      <ul>
+        <li v-for="hobbie of hobbies">
+          {{hobbie.name}} - {{hobbie.hoursPerDay}} hours
+          <span v-if="hobbie.doingNow">(Doing now)</span>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Development version of Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./01.js"></script>
+</body>
+</html>
