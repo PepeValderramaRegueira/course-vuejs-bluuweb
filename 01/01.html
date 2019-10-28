@@ -15,28 +15,34 @@
       <h2>Hobbies</h2>
 
       <!-- Add new hobbie -->
-      <form>
+      <form v-on:submit.prevent="addNewHobbie">
         <div class="field">
           <input type="text" placeholder="New hobbie" id="new-hobbie-name" v-model="newHobbie.name">
           <label for="new-hobbie-name">New Hobbie</label>
         </div>
         <div class="field">
-          <input type="number" id="new-hobbie-hours-per-day" v-model="newHobbie.hoursPerDay" placeholder="Hours per day">
+          <input type="number" id="new-hobbie-hours-per-day" v-model.number="newHobbie.hoursPerDay" placeholder="Hours per day">
           <label for="new-hobbie-hours-per-day">Hours per day</label>
         </div>
         <div class="form-actions">
           <!-- <button v-on:click="addNewHobbie">Add new hobbie</button> --> <!-- 'Old versions' -->
-          <button @click="addNewHobbie">Add new hobbie</button> <!-- 'New versions' -->
+          <button @click.prevent="addNewHobbie">Add new hobbie</button> <!-- 'New versions' -->
         </div>
       </form>
       
       <!-- Render the hobbies array -->
       <ul>
         <li v-for="hobbie of hobbies">
-          {{hobbie.name}} - {{hobbie.hoursPerDay}} hours
+          {{hobbie.name}}
+          <input type="text" v-model.number="hobbie.hoursPerDay">
+          hours
+          <button @click="hobbie.hoursPerDay--">-</button>
+          <button @click="hobbie.hoursPerDay++">+</button>
           <span v-if="hobbie.doingNow">(Doing now)</span>
+          <span v-if="hobbie.hoursPerDay === 0">Not training</span>
         </li>
       </ul>
+      <p><strong>Total hours:</strong> {{sumHoursPerDay}}</p>
     </section>
   </div>
 

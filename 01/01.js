@@ -11,12 +11,12 @@ const app = new Vue({
       name: '',
       hoursPerDay: '',
       doingNow: false
-    }
+    },
+    totalHoursPerDay: 0
   },
   methods: {
     // Add a new hobbie to the hobbies list.
     addNewHobbie (e) {
-      e.preventDefault()
       this.hobbies.push({
         name: this.newHobbie.name,
         hoursPerDay: this.newHobbie.hoursPerDay,
@@ -26,6 +26,11 @@ const app = new Vue({
       // Reset the new hobbie form
       this.newHobbie.name = ''
       this.newHobbie.hoursPerDay = ''
+    }
+  },
+  computed: {
+    sumHoursPerDay() {
+      return this.hobbies.reduce((value, current) => current.hoursPerDay + value, 0)
     }
   }
 })
