@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vuejs - 04</title>
+  <link rel="stylesheet" href="./04.css">
+</head>
+<body>
+  <div id="app">
+    <div>
+      <div class="box" :class="style">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut autem natus ullam nam sequi et cupiditate eaque minima cumque quis est minus, nesciunt recusandae quam, deleniti iusto, voluptatem dolorem expedita.</p>
+      </div>
+      <input type="text" v-model="style" placeholder="Apply a class (bg-blue - bg-green - bg-red)">
+    </div>
+    <div>
+      <div
+        class="box"
+        :class="{
+          'bg-red' : quantity === 0,
+          'bg-blue' : quantity > 0 && quantity <= 4,
+          'bg-green' : quantity > 4 }"
+      >
+        <p>Quantity: {{quantity}}</p>
+        <input type="text" v-model="quantity" placeholder="Quantity">
+        <button @click="quantity++">+</button>
+        <button @click="quantity--">-</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Development version of Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./04.js"></script>
+</body>
+</html>

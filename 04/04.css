@@ -1,0 +1,6 @@
+.box { padding: 1rem; }
+
+.bg-default { background-color:#F8F8F8; color: #888888; }
+.bg-blue { background-color: rgb(61, 136, 187); color: #FFFFFF; }
+.bg-green { background-color: rgb(43, 134, 96); color: #FFFFFF; }
+.bg-red { background-color: rgb(202, 67, 67); color: #FFFFFF; }
