@@ -16,12 +16,17 @@
       <input type="text" v-model="style" placeholder="Apply a class (bg-blue - bg-green - bg-red)">
     </div>
     <div>
-      <div
+      <!-- The next div has been updated to use computed properties. -->
+      <!-- <div
         class="box"
         :class="{
           'bg-red' : quantity === 0,
           'bg-blue' : quantity > 0 && quantity <= 4,
           'bg-green' : quantity > 4 }"
+      > -->
+      <div
+        class="box"
+        :class="quantityColor"
       >
         <p>Quantity: {{quantity}}</p>
         <input type="text" v-model="quantity" placeholder="Quantity">
