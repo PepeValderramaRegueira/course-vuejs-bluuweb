@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vuejs - 05 CRUD with Local storage</title>
+  <link rel="stylesheet" href="./crud.css">
+</head>
+<body>
+  <div class="container">
+    <div id="app" class="app">
+      <!-- Form to add a new task. -->
+      <form id="add-new-task-form" class="add-new-task-form" v-on:submit.prevent="addNewTask">
+        <div class="field">
+          <input type="text" name="new-task" id="new-task" autocomplete="off" placeholder="New task" v-model="newTask">
+        </div>
+      </form>
+      
+      <!-- Tasks list. -->
+      <ul class="tasks-list" v-if="tasksList.length > 0">
+        <li v-for="(task, index) of tasksList" :class="['task', task.done ? 'task-done' : 'task-pending']">
+          <input type="text" v-model="task.content">
+          <div class="checkbox-field">
+            <label :for="'task-' + index">Done</label>
+            <input type="checkbox" name="done" :id="'task-' + index" @change="toggleDoneTask(task)" :checked="task.done">
+          </div>
+          <button @click="updateLocalStorage(true)">Update</button>
+          <button @click="deleteTask(index)">Delete</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Development version of Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./crud.js"></script>
+</body>
+</html>

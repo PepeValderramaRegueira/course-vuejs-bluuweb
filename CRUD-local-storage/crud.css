@@ -1,0 +1,51 @@
+:root {
+  --primary: rgb(27, 192, 214);
+  --text-color: #888888;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: var(--text-color);
+}
+
+body {
+  padding: 2rem 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.app {
+
+}
+
+.add-new-task-form {
+  margin-bottom: 1rem;
+}
+
+.add-new-task-form input[type="text"] {
+  padding: .5rem 0;
+  border: none;
+  border-bottom: 2px solid #AAAAAA;
+  font-size: 1rem;
+  color: var(--text-color);
+  width: 100%;
+}
+
+.add-new-task-form input[type="text"]:focus {
+  border-bottom-color: var(--primary);
+  color: var(--primary);
+}
+
+.tasks-list {
+
+}
