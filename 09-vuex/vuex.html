@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vuejs - 09 (Vuex)</title>
+</head>
+<body>
+  <div id="app">
+    <h1>Vuex</h1>
+    <p>Number out of components: {{$store.state.number}}</p>
+    <parent></parent>
+  </div>
+
+  <!-- Development version of Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- Vuex -->
+  <script src="https://unpkg.com/vuex@3.1.1/dist/vuex.js"></script>
+
+  <!-- Components -->
+  <script src="./components/parent.js"></script>
+  <script src="./components/child.js"></script>
+
+  <script>
+    const store = new Vuex.Store({
+      state: {
+        number: 0
+      },
+      mutations: {
+        // Without passing state as argument
+        // increment() {
+        //   this.state.number++
+        // }
+        increment(state) {
+          state.number++
+        }
+      }
+    })
+    
+    new Vue({
+      el: '#app',
+      store
+    })
+  </script>
+</body>
+</html>
