@@ -17,6 +17,9 @@ const app = new Vue({
           'progress-high' : progressBar.progress > 75
         }
       }
+    },
+    pregressBarsAverage() {
+      return this.progressBars.reduce((value, current) => value + current.progress, 0) / this.progressBars.length
     }
   }
 })
