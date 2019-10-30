@@ -1,0 +1,38 @@
+* {
+  font-family: sans-serif;
+}
+
+.vader {
+  background-color: red;
+  box-shadow: 0 3px 6px red;
+}
+
+.vader-good {
+  background-color: rgb(0, 234, 255);
+  box-shadow: 0 3px 6px rgb(0, 234, 255);
+}
+
+.luke {
+  background-color: rgb(0, 255, 0);
+  box-shadow: 0 3px 6px rgb(0, 255, 0);
+}
+
+.vader,
+.luke {
+  padding: 1rem;
+  border-radius: 3px;
+}
+
+.goToTheLightSide-button {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #FFFFFF;
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .25);
+  cursor: pointer;
+}
