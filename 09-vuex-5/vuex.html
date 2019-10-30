@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vuejs - 09 (Vuex)</title>
+</head>
+<body>
+  <div id="app">
+    <h1>Vuex</h1>
+    <p>Number out of components: {{number}}</p>
+    <button @click="getProgrammingLanguages">Get programming languages</button>
+    <ul v-if="programmingLanguages !== null">
+      <li v-for="programmingLanguage of programmingLanguages">{{programmingLanguage.name}}</li>
+    </ul>
+    <p v-else>Programming languages not loaded yet.</p>
+    <parent></parent>
+  </div>
+
+  <!-- Development version of Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- Vuex -->
+  <script src="https://unpkg.com/vuex@3.1.1/dist/vuex.js"></script>
+
+  <!-- Components -->
+  <script src="./components/parent.js"></script>
+  <script src="./components/child.js"></script>
+
+  <script>
+    const store = new Vuex.Store({
+      state: {
+        number: 100,
+        programmingLanguages: null
+      },
+
+      mutations: {
+        // Without passing state as argument
+        // increment() {
+        //   this.state.number++
+        // }
+        increment(state) {
+          state.number++
+        },
+        decrement(state, amount) {
+          state.number -= amount
+        },
+        setProgrammingLanguages(state, programmingLanguages) {
+          state.programmingLanguages = programmingLanguages
+        }
+      },
+
+      actions: {
+        // getProgrammingLanguages: async function(context) { // Get all the context.
+        getProgrammingLanguages: async function({commit}) { // Just get the commit from the context.
+          const data = await fetch('./../data/programming-languages.json')
+          const programmingLanguages = await data.json()
+          commit('setProgrammingLanguages', programmingLanguages)
+        }
+      }
+    })
+    
+    new Vue({
+      el: '#app',
+      store,
+
+      computed: {
+        ...Vuex.mapState(['number', 'programmingLanguages'])
+      },
+
+      methods: {
+        ...Vuex.mapActions(['getProgrammingLanguages'])
+      }
+    })
+  </script>
+</body>
+</html>
