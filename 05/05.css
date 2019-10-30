@@ -1,0 +1,120 @@
+* {
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #EEEEEE;
+  padding: 2rem 1rem;
+}
+
+button:focus,
+input:focus {
+  outline: none;
+}
+
+#app {
+  max-width: 600px;
+  margin: auto;
+}
+
+.progress-bar-container {
+  margin-bottom: 1rem;
+  background-color: #FFFFFF;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+  border-radius: 2px;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #F8F8F8;
+  border-radius: 2px 150px 150px 2px;
+  flex-grow: 1;
+}
+
+.progress-bar .progress {
+  background-color: rgb(13, 219, 185);
+  line-height: 1rem;
+  transition: width .2s;
+  overflow: hidden;
+  border-radius: 0 150px 150px 0;
+}
+
+.progress-bar-container button {
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: .75rem;
+  font-weight: 700;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.progress-bar-container .config {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.progress-bar-container label {
+  margin-bottom: 0.25rem;
+  font-size: .75rem;
+  font-weight: 700;
+  color: #444444;
+}
+
+.progress-bar-container input {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background-color: #88888822;
+  padding: 0.5rem;
+  border-radius: 2px 2px 0 0;
+  font-size: .75rem;
+  font-weight: 700;
+  width: 100px;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.progress-bar-container input:focus {
+  background-color: #88888844;
+  border-bottom-color: #AAAAAA;
+}
+
+.progress-bar-container input:focus + label {
+  color: #000000;
+}
+
+.progress-bar-container button:first-child {
+  background-color: rgb(63, 161, 109);
+  color: #FFFFFF;
+  margin-right: 0.25rem;
+}
+
+.progress-bar-container button:last-child {
+  background-color: rgb(216, 74, 74);
+  color: #FFFFFF;
+}
+
+.progress-bar-control {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.buttons {
+  display: flex;
+  margin-right: .5rem;
+}
+
+.progress-bar .progress-low { background-color: rgb(190, 86, 91); color: #FFFFFF; }
+.progress-bar .progress-medium { background-color: rgb(231, 156, 94); color: #000000; }
+.progress-bar .progress-high { background-color: rgb(67, 200, 107); color: #000000; }
+
+.progress-bar span {
+  padding: 0.25rem;
+  display: block;
+  font-size: .75rem;
+  font-weight: 600;
+}

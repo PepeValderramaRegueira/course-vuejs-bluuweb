@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vuejs - 05 (Computed properties)</title>
+  <link rel="stylesheet" href="./05.css">
+</head>
+<body>
+  <div id="app">
+    <div v-for="(progressBar, index) of progressBars" class="progress-bar-container">
+      <div class="progress-bar-control">
+        <div class="progress-bar">
+          <div class="progress" :class="progressBarStatus(progressBar)" :style="{'width' : progressBar.progress + '%'}">
+            <span>{{progressBar.progress}}%</span>
+          </div>
+        </div>
+        <div class="buttons">
+          <button @click="progressBar.progress + progressBar.progressJump < 100 ? progressBar.progress += progressBar.progressJump : progressBar.progress = 100">+</button>
+          <button @click="progressBar.progress - progressBar.progressJump > 0 ? progressBar.progress -= progressBar.progressJump : progressBar.progress = 0">-</button>
+        </div>
+      </div>
+      <div class="config">
+        <input type="text" :id="'config-' + index" v-model.number="progressBar.progressJump">
+        <label :for="'config-' + index">Progress jump</label>
+      </div>
+    </div>
+  </div>
+  <!-- Development version of Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="module" src="./05.mjs"></script>
+</body>
+</html>
